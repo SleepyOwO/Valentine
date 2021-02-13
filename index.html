@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Love you</title>
+        <link rel="SHORTCUT ICON" href="he.png" type="image/x-icon">
+        <style>
+            body{
+                background: radial-gradient(circle, white, pink);
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .heart {
+                z-index: 2;
+                animation: heartbeat 1s infinite;
+                background-color: red;
+                display: inline-block;
+                height: 250px;
+                margin: 0 10px;
+                position: absolute;
+                top: 0;
+                transform: rotate(-45deg);
+                position: absolute; 
+                left: 37%; top: 45%;
+                width: 250px;
+            }
+
+            .heart:before,
+            .heart:after {
+                content: "";
+                background-color: red;
+                border-radius: 50%;
+                height: 250px;
+                position: absolute;
+                width: 250px;
+            }
+
+            .heart:before {
+                top: -120px;
+                left: 0;
+            }
+
+            .heart:after {
+                left: 120px;
+                top: 0;
+            }
+            @keyframes heartbeat {
+                0%
+                {
+                    transform: scale( 1 )
+                    rotate(-45deg);    
+                }
+                20%
+                {
+                    transform: scale( 1.2 )
+                    rotate(-45deg);  
+                }
+                40%
+                {
+                    transform: scale( 1.4 )
+                    rotate(-45deg);
+                }
+            }
+            img {
+            position:absolute;
+            width: 5vw;
+            opacity: 0.8;          
+            }
+            .anime{
+                animation: movie 5s alternate infinite;
+            }
+            @keyframes movie {
+                from {transform: translateY(20vw) rotate(180deg)}
+                to {transform: translateY(1vw) rotate(-180deg)}
+            }
+            @font-face{
+                font-family: rf;
+                src: url(rf.ttf);
+            }
+            article{
+                position: absolute;
+                left: 5%;
+                top: 20%;
+                margin: auto;
+                width: fit-content;
+                text-align: center;
+                font-family: rf;
+                font-size: 7vw;
+                z-index: 2;
+            }
+            h1{
+                color: wheat;
+                text-align: center;
+                top: -7vw;
+                left: 3vw;
+                font-size: 6vw;
+                font-family: rf;
+                transform: rotate(45deg);
+                position: relative;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body onload="appear()">
+        <article>С днём Святого Валентина, любимая!</article>
+        <div class="heart"><h1>Ты лучшая <br> Девушка <br> В мире!</h1></div>
+        <script>
+            arr1 = new Array(5) 
+            for (let i=0; i<arr1.length; i++) {
+                arr1[i]=new Image()
+             }
+                          arr1[0].src="h.svg"
+                          arr1[1].src="he.png"
+        function appear () {
+           var узел_gal=document.querySelector("body")
+           var узел_img=[]
+           for (let i=0; i< 20; i++) {
+                узел_img[i] = document.createElement ("img")
+                узел_gal.appendChild(узел_img[i])
+                узел_img[i].src=arr1[Math.round(Math.random()*1)].src
+                узел_img[i].style.top=Math.round(Math.random()*90)+"vh"
+                узел_img[i].style.left=Math.round(Math.random()*80)+"vw"
+                узел_img[i].classList.add("anime")
+                узел_img[i].style.animationDelay=Math.round(Math.random()*5+1)+"s"
+           }
+        }        
+        </script>
+    </body>
+</html>
